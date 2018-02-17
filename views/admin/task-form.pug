@@ -7,7 +7,7 @@ block content
         h1.display-4.m-b-2 Task form
 
         // register form
-        form(method='POST' action='/register')
+        form(method='POST' action='/admin/task-form/addnewtask')
           div.form-group
             input(type='hidden', name='_csrf', value=_csrf)
           div.form-group
@@ -15,7 +15,7 @@ block content
             input#name.form-control(type='text', placeholder='Task name' name='task-name')
               
           div.form-group
-            label(for='lessons') Select Lesson:
+            label(for='lessons') Lesson:
             select#name.form-control(type='text', placeholder='Select Lesson' name='lessons')
               each val in ['lesson1', 'lesson2', 'lesson3']
                 option= val
