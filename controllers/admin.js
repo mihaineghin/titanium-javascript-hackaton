@@ -8,12 +8,21 @@ exports.getAdmin = (req, res) => {
     // if (req.user) {
     //   return res.redirect('/');
     // }
+    res.render('admin/admin', {
+        title: 'adding lesson'
+    });
+};
+
+exports.getLessonsForm = (req, res) => {
+    // if (req.user) {
+    //   return res.redirect('/');
+    // }
     res.render('admin/lessons/lesson-form', {
         title: 'adding lesson'
     });
 };
 
-exports.postAdmin = (req, res) => {
+exports.postLessons = (req, res) => {
     const lesson = new Lesson({
         name: req.body.lesson_name,
         description: req.body.lesson_description
@@ -23,3 +32,12 @@ exports.postAdmin = (req, res) => {
         res.send()
     })
 };
+
+
+exports.getLessons = (req, res) => {
+    Lesson.find({},(error, result) => {
+        if(error) return res.send(error) 
+        res.send(result);
+    })
+};
+
