@@ -1,13 +1,9 @@
 extends ../layout
 
-style(type="text/css")
-  .own-class {
-    margin: 0 auto;
-    width: 25rem;
-    heigth: 35rem;
-  }
-
-a(href="create")
-   button(type="button" class="own-class btn btn-primary") Add lesson
-   a(href="create")
-      button(type="button" class="own-class btn btn-primary") Add task 
+block content
+  
+div.container
+  a(href="create")
+    button(type="button" class="own-class btn btn-info") Add lesson
+  a(href="create")
+    button(type="button" class="own-class btn btn-info") Add task 
