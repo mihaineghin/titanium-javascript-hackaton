@@ -34,6 +34,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
+const adminController = require('./controllers/admin');
 
 /**
  * API keys and Passport configuration.
@@ -110,7 +111,7 @@ app.use((req, res, next) => {
   } else if (req.user &&
       req.path === '/account') {
     req.session.returnTo = req.path;
-  }
+  } 
   next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
@@ -135,6 +136,8 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+app.get('/admin', userController.getAdmin);
+app.post('/admin', userController.postAdmin);
 
 app.get('/test', (req, res) => {
     res.json({
