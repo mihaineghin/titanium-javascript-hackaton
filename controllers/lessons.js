@@ -33,6 +33,7 @@ exports.postLessons = (req, res) => {
     lesson.save((error) => {
         res.send()
     })
+    return res.redirect('/lessons');
 };
 
 
