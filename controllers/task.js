@@ -62,7 +62,7 @@ exports.getLessonById = (req, res) => {
                 return res.status(500).send(err);
             }
             console.log(task);
-            req.flash('Task name', lessons.name);
+            req.flash('Task name', task.name);
         });
     });
 }
