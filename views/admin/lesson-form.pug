@@ -1,5 +1,19 @@
 extends ../layout
 
 block content
-    h1 Lesson Form
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Sign Up
+
+        // register form
+        form(method='POST' action='/admin')
+          div.form-group
+            label(for='name') Lesson Name:
+            input#name.form-control(type='text', placeholder='Lesson Name' name="lesson-name")
+          div.form-group
+            label(for='name') Lesson Description:
+            textarea#name.form-control(placeholder='Lesson Description' name="lesson-description")
+          
+          button.btn.btn-primary(type='submit') Add Lesson
 
