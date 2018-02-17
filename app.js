@@ -34,11 +34,8 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
-<<<<<<< HEAD
 const adminController = require('./controllers/admin');
-=======
 const taskController = require('./controllers/task');
->>>>>>> 82b9e7d3fa868235b88131e6633fd5fdaf7abbfc
 
 /**
  * API keys and Passport configuration.
@@ -115,7 +112,7 @@ app.use((req, res, next) => {
   } else if (req.user &&
       req.path === '/account') {
     req.session.returnTo = req.path;
-  } 
+  }
   next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));

@@ -8,7 +8,7 @@ exports.getAdmin = (req, res) => {
     // if (req.user) {
     //   return res.redirect('/');
     // }
-    res.render('admin/', {
+    res.render('admin/admin', {
         title: 'adding lesson'
     });
 };
