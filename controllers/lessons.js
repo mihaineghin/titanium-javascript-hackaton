@@ -37,7 +37,10 @@ exports.postLessons = (req, res) => {
 exports.getLessons = (req, res) => {
     Lesson.find({},(error, result) => {
         if(error) return res.send(error) 
-        res.send(result);
+        // res.send(result);
+        res.render('lessons/lessons', {
+            lessons: result
+        });
     })
 };
 
