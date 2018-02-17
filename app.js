@@ -136,10 +136,10 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-app.post('/admin', adminController.postAdmin);
+// app.post('/admin', adminController.postAdmin);
 app.get('/admin', adminController.getAdmin);
-app.post('/admin/lessons', adminController.getAdmin);
-app.get('/admin/lessons', adminController.getAdmin);
+app.post('/admin/lessons', adminController.postLessons);
+app.get('/admin/lessons', adminController.getLessons);
 
 app.get('/test', (req, res) => {
     res.json({

@@ -8,12 +8,12 @@ exports.getAdmin = (req, res) => {
     // if (req.user) {
     //   return res.redirect('/');
     // }
-    res.render('admin/lessons/lesson-form', {
+    res.render('admin/', {
         title: 'adding lesson'
     });
 };
 
-exports.postAdmin = (req, res) => {
+exports.postLessons = (req, res) => {
     const lesson = new Lesson({
         name: req.body.lesson_name,
         description: req.body.lesson_description
@@ -21,5 +21,13 @@ exports.postAdmin = (req, res) => {
     
     lesson.save((error) => {
         res.send()
+    })
+};
+
+
+exports.getLessons = (req, res) => {
+    Lesson.find({},(error, result) => {
+        if(error) return res.send(error) 
+        res.send(result);
     })
 };
