@@ -136,8 +136,8 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-app.get('/admin/task-form', passportConfig.isAuthenticated, taskController.getNewTask);
-app.post('/admin/task-form/addnewtask', passportConfig.isAuthenticated, taskController.postNewTask);
+app.get('/admin/task-form', taskController.getNewTask);
+app.post('/admin/task-form/addnewtask', taskController.postNewTask);
 
 app.get('/test', (req, res) => {
     res.json({
