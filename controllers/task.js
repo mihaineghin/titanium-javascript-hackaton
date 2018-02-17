@@ -28,6 +28,7 @@ exports.postNewTask = (req, res) => {
 
     const task = new Task({
         name: req.body.name,
+        lessons: req.body.lessons.selected,
         description: req.body.description,
         tests: req.body.tests
     });
