@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 extends ../../layout
 
 block content
@@ -19,3 +20,26 @@ block content
             
             button.btn.btn-primary(type='submit') Add Lesson
 
+=======
+extends ../../layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Add lesson
+
+        // adding lesson
+        form(method='POST' action='/admin')
+            div.form-group
+            input(type="hidden" name="_csrf" value=_csrf)
+            div.form-group
+                label(for='name') Lesson Name:
+                input#name.form-control(type='text', placeholder='Lesson Name' name="lesson_name")
+            div.form-group
+                label(for='name') Lesson Description:
+                textarea#name.form-control(placeholder='Lesson Description' name="lesson-description")
+            
+            button.btn.btn-primary(type='submit') Add Lesson
+
+>>>>>>> be879d68a90b2976b19c58d927d72e6f71f1596d
