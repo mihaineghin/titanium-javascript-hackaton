@@ -11,21 +11,21 @@ block content
           div.form-group
             input(type='hidden', name='_csrf', value=_csrf)
           div.form-group
-            label(for='task-name') Task name:
-            input#name.form-control(type='text', placeholder='Task name' name='name')
+            label(for='task_name') Task name:
+            input#name.form-control(type='text', placeholder='Task name' name='task_name')
               
           div.form-group
-            label(for='lessons') Select Lesson:
+            label(for='lessons') Lesson:
             select#name.form-control(type='text', placeholder='Select Lesson' name='lessons')
               each val in ['lesson1', 'lesson2', 'lesson3']
                 option= val
             
           div.form-group
-            label(for='task-description') Task description:
-            textarea#favoriteBook.form-control(type='text', placeholder='Task description' name='description')
+            label(for='task_description') Task description:
+            textarea#favoriteBook.form-control(type='text', placeholder='Task description' name='task_description')
           
           div.form-group
-            label(for='task-tests') Task tests:
-            textarea#favoriteBook.form-control(type='text', placeholder='Task tests' name='tests')
+            label(for='task_tests') Task tests:
+            textarea#favoriteBook.form-control(type='text', placeholder='Task tests' name='task_tests')
               
           button.btn.btn-primary(type='submit') Add task
