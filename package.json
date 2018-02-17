@@ -9,7 +9,7 @@
   "author": "Sahat Yalkabov",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "mocha --reporter spec",
     "postinstall": "npm rebuild node-sass",
     "eslint": "eslint **/*.js"
@@ -55,7 +55,7 @@
     "passport-openid": "^0.4.0",
     "passport-twitter": "^1.0.4",
     "paypal-rest-sdk": "^1.7.1",
-    "pug": "^2.0.0-rc.3",
+    "pug": "^2.0.0-rc.4",
     "request": "^2.81.0",
     "stripe": "^4.24.0",
     "tumblr.js": "^1.1.1",

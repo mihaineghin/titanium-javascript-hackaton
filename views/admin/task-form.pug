@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Task form
+
+        // register form
+        form(method='POST' action='/register')
+          div.form-group
+            input(type='hidden', name='_csrf', value=_csrf)
+          div.form-group
+            label(for='task-name') Task name:
+            input#name.form-control(type='text', placeholder='Task name' name='task-name')
+              
+          div.form-group
+            label(for='lessons') Select Lesson:
+            select#name.form-control(type='text', placeholder='Select Lesson' name='lessons')
+              each val in ['lesson1', 'lesson2', 'lesson3']
+                option= val
+            
+          div.form-group
+            label(for='task-description') Task description:
+            textarea#favoriteBook.form-control(type='text', placeholder='Task description' name='task-description')
+          
+          div.form-group
+            label(for='task-tests') Task tests:
+            textarea#favoriteBook.form-control(type='text', placeholder='Task tests' name='task-tests')
+              
+          button.btn.btn-primary(type='submit') Add task

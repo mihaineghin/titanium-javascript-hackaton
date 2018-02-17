@@ -6,6 +6,6 @@ const taskSchema = new mongoose.Schema({
   tests: String,
 }, { timestamps: true });
 
-const Task = mongoose.model('User', taskSchema);
+const Task = mongoose.model('Task', taskSchema);
 
 module.exports = Task;
