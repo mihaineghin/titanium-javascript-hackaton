@@ -35,6 +35,7 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const taskController = require('./controllers/task');
+const adminController = require('./controllers/admin');
 
 /**
  * API keys and Passport configuration.
