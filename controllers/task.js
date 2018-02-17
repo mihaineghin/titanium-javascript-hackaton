@@ -6,8 +6,14 @@ const Lessons = require('../models/Lessons');
  * New Task page.
  */
 exports.getNewTask = (req, res) => {
-    res.render('admin/tasks/task-form', {
-        title: 'New Task Page'
+    Lessons.find({}, (err, lessons) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.render('admin/tasks/task-form', {
+        title: 'New Task Page',
+        lessons: lessons
+    });
     });
 };
 
