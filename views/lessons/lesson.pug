@@ -6,9 +6,9 @@ extends ../layout
 block content
   
   div.container
-    p.lesson-title Lesson name: #{lesson.name}
-    p.lesson-title Lesson Description: #{lesson.description}
+    p.lessonTitle Lesson name: #{lesson.name}
+    p.lessonTitle Lesson Description: #{lesson.description}
   div.container
-    .list-group Tasks:
+    .list-group.lessonTitle Tasks:
       each task in tasks
         a.list-group-item(href=`${lesson.id}/task/${task.id}`)= task.name

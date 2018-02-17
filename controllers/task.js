@@ -61,7 +61,7 @@ exports.getTaskById = (req, res) => {
         if (err) {
             return res.status(500).send(err);
         }
-        //console.log(task);
+        // console.log(task.description);
         // res.send({name: task.name, description: task.description});
         res.render('task/task.pug', {name: task.name, description: task.description});
 });
@@ -78,8 +78,14 @@ exports.postCheckSolution = (req, res) => {
                 return console.error('upload failed:', err);
             }
             console.log('Upload successful!  Server responded with:', body);
-            res.send(body);
+            // req.flash('errors', body);
+            // res.send(body);
+            body = JSON.parse(body)
+            res.render('task/check', {
+              tests: body.tests,
+              failed: body.failed,
+              msg: body.stderr
+            });
         }
     );
 }
-

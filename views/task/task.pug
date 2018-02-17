@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  
+  form(method='POST' action='/check')
+    div.form-group
+      input(type='hidden', name='_csrf', value=_csrf)
+        
+    div.form-group
+      label(for='task_name') Task name:
+      input#name.form-control(type='text', placeholder='Task name' disabled value=name)      
+      
+    div.form-group
+      label(for='task_description') Task description:
+      input#favoriteBook.form-control(type='text' disabled value=description)
+        
+    div.form-group
+      label(for='solution') Solution:
+      textarea#favoriteBook.form-control(type='text', placeholder='Your solution' name='solution')
+        
+    button.btn.btn-primary(type='submit') Add task
+
+  

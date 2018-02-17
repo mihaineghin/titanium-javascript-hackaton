@@ -145,7 +145,7 @@ app.post('/admin/task-form/addnewtask', taskController.postNewTask);
 app.get('/lesson/:LessonId', adminController.getLessonById);
 app.get('/admin/lesson-form', adminController.getLessonsForm);
 app.get('/lesson/:LessonId/task/:TaskId', taskController.getTaskById);
-app.get('/lesson/:LessonId/task/:TaskId/check', taskController.postCheckSolution);
+app.post('/check', taskController.postCheckSolution);
 
 
 app.get('/test', (req, res) => {
