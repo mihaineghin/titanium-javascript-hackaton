@@ -17,8 +17,8 @@ block content
           div.form-group
             label(for='lessons') Lesson:
             select#name.form-control(type='text', placeholder='Select Lesson' name='lessons')
-              each val in ['lesson1', 'lesson2', 'lesson3']
-                option= val
+              each val in lessons
+                option(value=val._id)= val.name
             
           div.form-group
             label(for='task_description') Task description:
