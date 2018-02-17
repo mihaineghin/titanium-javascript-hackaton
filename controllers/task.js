@@ -28,7 +28,7 @@ exports.postNewTask = (req, res) => {
 
     const task = new Task({
         name: req.body.name,
-        lessons: req.body.lessons.selected,
+        lessons: req.body.lessons,
         description: req.body.description,
         tests: req.body.tests
     });
@@ -37,6 +37,8 @@ exports.postNewTask = (req, res) => {
         if (err) {
             return res.status(500).send(err);
         }
+        console.log(req.body);
+        console.log(task);
         res.redirect('/admin/task-form');
     });
 };
