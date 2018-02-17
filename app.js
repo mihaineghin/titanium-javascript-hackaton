@@ -34,7 +34,11 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
+<<<<<<< HEAD
 const adminController = require('./controllers/admin');
+=======
+const taskController = require('./controllers/task');
+>>>>>>> 82b9e7d3fa868235b88131e6633fd5fdaf7abbfc
 
 /**
  * API keys and Passport configuration.
@@ -140,6 +144,8 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 app.get('/admin', adminController.getAdmin);
 app.post('/admin/lessons', adminController.postLessons);
 app.get('/admin/lessons', adminController.getLessons);
+app.get('/admin/task-form', taskController.getNewTask);
+// app.post('/admin/task-form/addnewtask', passportConfig.isAuthenticated, taskController.postNewTask);
 
 app.get('/test', (req, res) => {
     res.json({
