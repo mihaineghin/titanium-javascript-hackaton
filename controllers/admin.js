@@ -31,3 +31,4 @@ exports.getLessons = (req, res) => {
         res.send(result);
     })
 };
+
