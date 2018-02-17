@@ -1,0 +1,14 @@
+//- tasks is an array . list the name is an anchor
+//- lesson {} - name  description
+
+extends ../layout
+
+block content
+  
+  div.container
+    p.lesson-title Lesson name: #{lesson.name}
+    p.lesson-title Lesson Description: #{lesson.description}
+  div.container
+    .list-group Tasks:
+      each task in tasks
+        a.list-group-item(href=`${lesson.id}/task/${task.id}`)= task.name
