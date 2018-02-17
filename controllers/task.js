@@ -1,11 +1,12 @@
 const Task = require('../models/Task');
+const Lessons = require('../models/Lessons');
 
 /**
  * GET /admin/task-form
  * New Task page.
  */
 exports.getNewTask = (req, res) => {
-    res.render('admin/task-form', {
+    res.render('admin/tasks/task-form', {
         title: 'New Task Page'
     });
 };
@@ -42,3 +43,26 @@ exports.postNewTask = (req, res) => {
         res.redirect('/admin/task-form');
     });
 };
+
+/**
+ * *
+ * GET /admin/lesson/:LessonId
+ * Get lessons by id
+ */
+exports.getLessonById = (req, res) => {
+    Lessons.findById(req.params.lessonsid, (err, lessons) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        console.log(lessons);
+        req.flash('Lesson title', lessons.name);
+        req.flash('Lesson description', lessons.name);
+        Task.find({lessons:lessons._id}, (err, task) => {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            console.log(task);
+            req.flash('Task name', lessons.name);
+        });
+    });
+}
