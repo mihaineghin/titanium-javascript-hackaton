@@ -136,6 +136,10 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+app.post('/admin', adminController.postAdmin);
+app.get('/admin', adminController.getAdmin);
+app.post('/admin/lessons', adminController.getAdmin);
+app.get('/admin/lessons', adminController.getAdmin);
 app.get('/admin/task-form', taskController.getNewTask);
 app.post('/admin/task-form/addnewtask', taskController.postNewTask);
 app.get('/admin/lesson/:LessonId', taskController.getLessonById);
@@ -178,6 +182,7 @@ app.post('/api/upload', upload.single('myFile'), apiController.postFileUpload);
 app.get('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getPinterest);
 app.post('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postPinterest);
 app.get('/api/google-maps', apiController.getGoogleMaps);
+
 
 /**
  * OAuth authentication routes. (Sign in)
