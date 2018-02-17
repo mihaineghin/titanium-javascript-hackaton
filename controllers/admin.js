@@ -13,6 +13,15 @@ exports.getAdmin = (req, res) => {
     });
 };
 
+exports.getLessonsForm = (req, res) => {
+    // if (req.user) {
+    //   return res.redirect('/');
+    // }
+    res.render('admin/lessons/lesson-form', {
+        title: 'adding lesson'
+    });
+};
+
 exports.postLessons = (req, res) => {
     const lesson = new Lesson({
         name: req.body.lesson_name,

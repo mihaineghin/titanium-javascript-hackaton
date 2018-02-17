@@ -34,7 +34,6 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
-const adminController = require('./controllers/admin');
 const taskController = require('./controllers/task');
 
 /**
@@ -143,6 +142,8 @@ app.get('/admin/lessons', adminController.getLessons);
 app.get('/admin/task-form', taskController.getNewTask);
 app.post('/admin/task-form/addnewtask', taskController.postNewTask);
 app.get('/admin/lesson/:LessonId', taskController.getLessonById);
+app.get('/admin/lesson-form', adminController.getLessonsForm);
+
 
 app.get('/test', (req, res) => {
     res.json({
