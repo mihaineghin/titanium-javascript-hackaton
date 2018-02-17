@@ -38,8 +38,8 @@ exports.postNewTask = (req, res) => {
         if (err) {
             return res.status(500).send(err);
         }
-        console.log(req.body);
-        console.log(task);
+        //console.log(req.body);
+        //console.log(task);
         res.redirect('/admin/task-form');
     });
 };
@@ -54,8 +54,7 @@ exports.getLessonById = (req, res) => {
         if (err) {
             return res.status(500).send(err);
         }
-        console.log(lessons);
-
+        //console.log(lessons);
         if (!lessons) return res.send('not found');
         req.flash('Lesson title', lessons.name);
         req.flash('Lesson description', lessons.description);
@@ -64,7 +63,7 @@ exports.getLessonById = (req, res) => {
                 return res.status(500).send(err);
             }
             //console.log(task);
-            res.send({results: task, name: lessons.name, description: lessons.description });
+            res.send({name: lessons.name, description: lessons.description, results: task});
         });
     });
 }
