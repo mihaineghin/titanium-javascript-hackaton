@@ -139,10 +139,10 @@ app.post('/account/delete', passportConfig.isAuthenticated, userController.postD
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 app.get('/admin', adminController.getAdmin);
 app.post('/admin/lessons', adminController.postLessons);
-app.get('/admin/lessons', adminController.getLessons);
+app.get('/lessons', adminController.getLessons);
 app.get('/admin/task-form', taskController.getNewTask);
 app.post('/admin/task-form/addnewtask', taskController.postNewTask);
-app.get('/admin/lesson/:LessonId', taskController.getLessonById);
+app.get('/lesson/:LessonId', adminController.getLessonById);
 app.get('/admin/lesson-form', adminController.getLessonsForm);
 
 
