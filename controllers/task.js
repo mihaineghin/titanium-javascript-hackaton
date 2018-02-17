@@ -62,7 +62,8 @@ exports.getTaskById = (req, res) => {
             return res.status(500).send(err);
         }
         //console.log(task);
-        res.send({name: task.name, description: task.description});
+        // res.send({name: task.name, description: task.description});
+        res.render('task/task.pug', {name: task.name, description: task.description});
 });
 }
 
