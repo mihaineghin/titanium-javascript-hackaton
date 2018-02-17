@@ -7,7 +7,7 @@ const Lessons = require('../models/Lessons');
  */
 exports.getNewTask = (req, res) => {
     res.render('admin/tasks/task-form', {
-        title: 'New Task Page'
+        title: 'New Task Page' 
     });
 };
 
