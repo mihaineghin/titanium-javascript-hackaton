@@ -8,8 +8,8 @@ exports.getAdmin = (req, res) => {
     // if (req.user) {
     //   return res.redirect('/');
     // }
-    res.render('admin/lesson-form', {
-        title: 'adding task'
+    res.render('admin/lessons/lesson-form', {
+        title: 'adding lesson'
     });
 };
 
