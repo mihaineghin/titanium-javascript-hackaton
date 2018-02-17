@@ -3,6 +3,8 @@ const crypto = bluebird.promisifyAll(require('crypto'));
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const Lesson = require('../models/Lessons');
+const Task = require('../models/Task');
+
 
 exports.getAdmin = (req, res) => {
     // if (req.user) {
@@ -43,4 +45,31 @@ exports.getLessons = (req, res) => {
         });
     })
 };
+
+/**
+ * *
+ * GET /admin/lesson/:LessonId
+ * Get lessons by id
+ */
+exports.getLessonById = (req, res) => {
+    Lesson.findById(req.params.LessonId, (err, lessons) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        console.log(lessons);
+        req.flash('Lesson title', lessons.name);
+        req.flash('Lesson description', lessons.name);
+        Task.find({lessons:lessons._id}, (err, task) => {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            console.log(task);
+            req.flash('Task name', task.name);
+            res.render('lessons/lesson', {
+                lesson: lessons,
+                tasks: task
+            })
+        });
+    });
+}
 
