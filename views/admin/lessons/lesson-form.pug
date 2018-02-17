@@ -1,5 +1,4 @@
 extends ../../layout
-
 block content
   .main.container
     .row
@@ -7,7 +6,7 @@ block content
         h1.display-4.m-b-2 Add lesson
 
         // adding lesson
-        form(method='POST' action='/admin')
+        form(method='POST' action='/admin/lessons')
             div.form-group
             input(type="hidden" name="_csrf" value=_csrf)
             div.form-group
@@ -15,7 +14,7 @@ block content
                 input#name.form-control(type='text', placeholder='Lesson Name' name="lesson_name")
             div.form-group
                 label(for='name') Lesson Description:
-                textarea#name.form-control(placeholder='Lesson Description' name="lesson-description")
+                textarea#name.form-control(placeholder='Lesson Description' name="lesson_description")
             
             button.btn.btn-primary(type='submit') Add Lesson
 

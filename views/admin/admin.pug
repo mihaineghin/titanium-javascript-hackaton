@@ -1,9 +1,8 @@
 extends ../layout
-
-block content
   
-div.container
-  a(href="create")
-    button(type="button" class="own-class btn btn-info") Add lesson
-  a(href="create")
-    button(type="button" class="own-class btn btn-info") Add task 
+block content
+  .buttons
+    a(href="admin/lesson-form")
+      button(type="button" class="own-class btn btn-primary") Add lesson
+    a(href="admin/task-form")
+      button(type="button" class="own-class btn btn-primary") Add task 

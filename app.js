@@ -35,6 +35,7 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
 const taskController = require('./controllers/task');
+const adminController = require('./controllers/admin');
 
 /**
  * API keys and Passport configuration.
@@ -136,8 +137,14 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+app.get('/admin', adminController.getAdmin);
+app.post('/admin/lessons', adminController.postLessons);
+app.get('/admin/lessons', adminController.getLessons);
 app.get('/admin/task-form', taskController.getNewTask);
-// app.post('/admin/task-form/addnewtask', passportConfig.isAuthenticated, taskController.postNewTask);
+app.post('/admin/task-form/addnewtask', taskController.postNewTask);
+app.get('/admin/lesson/:LessonId', taskController.getLessonById);
+app.get('/admin/lesson-form', adminController.getLessonsForm);
+
 
 app.get('/test', (req, res) => {
     res.json({
@@ -177,6 +184,7 @@ app.post('/api/upload', upload.single('myFile'), apiController.postFileUpload);
 app.get('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getPinterest);
 app.post('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postPinterest);
 app.get('/api/google-maps', apiController.getGoogleMaps);
+
 
 /**
  * OAuth authentication routes. (Sign in)
